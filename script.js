@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Load tasks from Local Storage when the page loads
-    loadTasks();
-
     // Select DOM elements
     const addButton = document.getElementById('add-task-btn');
     const taskInput = document.getElementById('task-input');
@@ -9,7 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to add a new task
     function addTask(taskText, save = true) {
-        if (taskText.trim() === '') {
+        taskText = taskText.trim(); // Trim any extra whitespace
+
+        // Check if taskText is not empty
+        if (taskText === '') {
             alert('Please enter a task.');
             return;
         }
@@ -58,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
         storedTasks.forEach(taskText => addTask(taskText, false)); // 'false' to avoid saving again
     }
+
+    // Load tasks from Local Storage when the page loads
+    loadTasks();
 
     // Add event listener to the "Add Task" button
     addButton.addEventListener('click', () => {
