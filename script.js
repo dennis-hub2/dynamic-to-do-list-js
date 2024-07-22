@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Add an event listener to taskInput for the ‘keypress’ event to allow tasks to be added by pressing the “Enter” key.
-    // Inside this event listener, check if event.key is equal to ‘Enter’ before calling addTask.
+    // Inside this event listener, check if event.key is equal to ‘Enter’ before calling addTask..
     taskInput.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {
             const taskText = taskInput.value;
